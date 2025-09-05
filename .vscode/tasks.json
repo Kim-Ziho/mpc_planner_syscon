@@ -1,0 +1,261 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        // JackalSimulator
+        {
+            "label": "JackalSimulator: Generate Solver",
+            "command": "source fix_console.sh && cd src/mpc_planner && python3 -m poetry run python mpc_planner_jackalsimulator/scripts/generate_jackalsimulator_solver.py",
+            "type": "shell",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "new",
+                "focus": true
+            }
+        },
+        {
+            "label": "JackalSimulator: Build",
+            "detail": "Build the ROS Package mpc_planner_jackalsimulator",
+            "type": "shell",
+            "command": "./build.sh jackalsimulator",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": "$gcc"
+        },
+        {
+            "label": "JackalSimulator: Generate solver and build",
+            "detail": "Generate the solver and build mpc_planner_jackalsimulator",
+            "type": "shell",
+            "command": "./build.sh jackalsimulator true",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": "$gcc"
+        },
+        {
+            "label": "JackalSimulator: Run Simulator",
+            "command": "source /opt/ros/noetic/setup.sh && source /workspace/devel/setup.bash && source /workspace/fix_console.sh && roslaunch mpc_planner_jackalsimulator ros1_jackalsimulator.launch",
+            "type": "shell",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "new",
+                "focus": true,
+                // "close": true
+            }
+        },
+        // ROS Navigation Stack
+        {
+            "label": "ROS Navigation: Generate Solve [OLD]",
+            "command": "source fix_console.sh && cd src/mpc_planner && python3 -m poetry run python mpc_planner_rosnavigation/scripts/generate_rosnavigation_solver.py",
+            "type": "shell",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "new",
+                "focus": true
+            }
+        },
+        {
+            "label": "ROS Navigation: Generate Solver [NEW]",
+            "command": "source fix_console.sh && cd src/mpc_planner && python3 -m poetry run python mpc_planner_rosnavigation/scripts/generate_mpc_solver.py",
+            "type": "shell",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "new",
+                "focus": true
+            }
+        },
+        {
+            "label": "ROS Navigation: Build",
+            "detail": "Build the mpc package ROS Navigation",
+            "type": "shell",
+            "command": "./build.sh rosnavigation",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": "$gcc"
+        },
+        {
+            "label": "ROS Navigation: Generate solver and build",
+            "detail": "Generate the solver and build the mpc package configured in build.sh",
+            "type": "shell",
+            "command": "source fix_console.sh && ./build.sh rosnavigation true",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": "$gcc"
+        },
+        {
+            "label": "ROS Navigation: Run Simulator",
+            "command": "source devel/setup.bash && source fix_console.sh && roslaunch mpc_planner_rosnavigation ros1_rosnavigation.launch",
+            "type": "shell",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "new",
+                "focus": true,
+                // "close": true
+            }
+        },
+        {
+            "label": "Run Tests",
+            "command": "source devel/setup.bash && cd src/mpc_planner && python3 -m poetry run python -m pytest solver_generator/test/ --cov-report term --cov-config=solver_generator/test/.coveragerc --cov --cov-fail-under=70", //--cov-report=xml:solver_generator/coverage.xml --cov-config=solver_generator/test/.coveragerc --cov --cov-fail-under=70",
+            "type": "shell",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "new",
+                "focus": true,
+                // "close": true
+            }
+        },
+        {
+            "label": "Jackal: Generate solver and build",
+            "detail": "Generate the solver and build mpc_planner_jackal",
+            "type": "shell",
+            "command": "./build.sh jackal true",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": "$gcc"
+        },
+        {
+            "label": "Jackal: Build",
+            "detail": "Build the ROS Package mpc_planner_jackal",
+            "type": "shell",
+            "command": "./build.sh jackal",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": "$gcc"
+        },
+        {
+            "label": "Jackal: Run Real-World Jackal",
+            "command": "source ./connect_to_jackal.sh && source devel/setup.bash && source fix_console.sh && roslaunch mpc_planner_jackal ros1_jackal.launch",
+            "type": "shell",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "new",
+                "focus": true,
+                // "close": true
+            }
+        },
+        {
+            "label": "ROS Navigation: Generate Solver [Debug]",
+            // "command": "source fix_console.sh && cd src/mpc_planner && python3 -m poetry run python -m debugpy --listen 0.0.0.0:5678 --wait-for-client mpc_planner_rosnavigation/scripts/generate_rosnavigation_solver.py",
+            "command": "source fix_console.sh && cd src/mpc_planner && python3 -m poetry run python -m debugpy --listen 0.0.0.0:5678 --wait-for-client mpc_planner_rosnavigation/scripts/generate_mpc_solver.py",
+            "type": "shell",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "new",
+                "focus": true
+            }
+        },
+        {
+            "label": "Acados: race_cars main [Debug]",
+            "command": "source fix_console.sh && cd src/mpc_planner && python3 -m poetry run python -m debugpy --listen 0.0.0.0:5678 --wait-for-client /workspace/acados/examples/acados_python/race_cars/main.py",
+            "type": "shell",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "new",
+                "focus": true
+            }
+        },
+        {
+            "label": "Acados: minimal_example_closed_loop [Debug]",
+            "command": "source fix_console.sh && cd src/mpc_planner && python3 -m poetry run python -m debugpy --listen 0.0.0.0:5678 --wait-for-client /workspace/acados/examples/acados_python/getting_started/minimal_example_closed_loop.py",
+            "type": "shell",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "new",
+                "focus": true
+            }
+        },
+        {
+            "label": "Run NCL script",
+            "type": "shell",
+            "command": "ncl",
+            "args": [
+                "${file}"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "ROS Tools: Run Examples",
+            "command": "source devel/setup.bash && source fix_console.sh && roslaunch ros_tools ros1_example.launch",
+            "type": "shell",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "new",
+                "focus": true,
+                // "close": true
+            }
+        },
+        {
+            "label": "Roadmap: roadmap test",
+            "command": "source devel/setup.bash && source fix_console.sh && roslaunch roadmap roadmap_test.launch",
+            "type": "shell",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "new",
+                "focus": true,
+                // "close": true
+            }
+        },
+    ]
+}
