@@ -13,7 +13,6 @@
   <depend>mpc_planner_types</depend>
   <depend>mpc_planner_solver</depend>
   <depend>mpc_planner_modules</depend>
-  <depend>ros_tools</depend>
 
   <export>
     <build_type>catkin</build_type>

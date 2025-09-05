@@ -6,7 +6,7 @@
 #include <decomp_util/ellipsoid_decomp.h>
 #include <decomp_util/decomp_geometry/geometric_utils.h>
 
-#include <ros_tools/projection.h>
+#include <mpc_planner_util/projection.h>
 
 namespace MPCPlanner
 {

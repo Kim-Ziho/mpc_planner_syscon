@@ -9,7 +9,6 @@ endif()
 
 set(DEPENDENCIES
   mpc_planner_types
-  ros_tools
   roscpp
   roslib
   tf
@@ -27,19 +26,26 @@ find_package(Eigen3 REQUIRED)
 
 catkin_package(
   CATKIN_DEPENDS ${DEPENDENCIES}
-  INCLUDE_DIRS include ${EIGEN3_INCLUDE_DIRS}
+  INCLUDE_DIRS include include/third_party ${EIGEN3_INCLUDE_DIRS}
   LIBRARIES ${PROJECT_NAME} yaml-cpp
   DEPENDS EIGEN3
 )
 
 include_directories(
   include
+  include/third_party
   ${catkin_INCLUDE_DIRS}
   ${EIGEN3_INCLUDE_DIRS}
 )
 
 add_library(${PROJECT_NAME} SHARED
   src/data_visualization.cpp
+  src/ros_visuals.cpp
+  src/spline.cpp
+  src/convertions.cpp
+  src/math.cpp
+  src/third_party/tkspline.cpp
+  src/third_party/clothoid.cpp
 )
 add_dependencies(${PROJECT_NAME} ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 target_link_libraries(${PROJECT_NAME} ${catkin_LIBRARIES} yaml-cpp)
@@ -52,5 +58,10 @@ install(TARGETS ${PROJECT_NAME}
 
 install(DIRECTORY include/${PROJECT_NAME}/
   DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}
+  PATTERN ".svn" EXCLUDE
+)
+
+install(DIRECTORY include/third_party/
+  DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}/../third_party
   PATTERN ".svn" EXCLUDE
 )

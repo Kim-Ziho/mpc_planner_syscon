@@ -3,7 +3,7 @@
 
 #include <mpc_planner_modules/controller_module.h>
 
-#include <ros_tools/spline.h>
+#include <mpc_planner_util/spline.h>
 
 namespace MPCPlanner
 {

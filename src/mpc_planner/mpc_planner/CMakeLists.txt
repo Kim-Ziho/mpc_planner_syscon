@@ -22,7 +22,6 @@ set(DEPENDENCIES
   mpc_planner_types
   mpc_planner_solver
   mpc_planner_modules
-  ros_tools
 )
 
 find_package(catkin REQUIRED COMPONENTS

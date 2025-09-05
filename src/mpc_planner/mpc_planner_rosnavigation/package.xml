@@ -16,7 +16,6 @@
   <depend>mpc_planner_solver</depend>
   <depend>mpc_planner_util</depend>
   <depend>mpc_planner_types</depend>
-  <depend>ros_tools</depend>
   <!-- <depend>dynamic_reconfigure</depend> -->
   <depend>tf2_ros</depend>
   <depend>nav_core</depend>

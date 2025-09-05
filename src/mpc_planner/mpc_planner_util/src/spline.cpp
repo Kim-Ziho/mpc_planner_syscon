@@ -1,9 +1,9 @@
-#include "ros_tools/spline.h"
+#include "mpc_planner_util/spline.h"
 #include <ros/ros.h>
 
 #include <third_party/clothoid.h>
 
-#include <ros_tools/math.h>
+#include <mpc_planner_util/math.h>
 
 namespace RosTools
 {

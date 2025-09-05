@@ -58,9 +58,9 @@ namespace RosTools
 
         ROSLine &getNewLine();
         ROSPointMarker &getNewPointMarker(const std::string &marker_type);
-        ROSMultiplePointMarker &getNewMultiplePointMarker(const std::string &marker_type);                           // const std::string &marker_type);
-        ROSTextMarker &getNewTextMarker();                                                                           // const std::string &marker_type);
-        ROSModelMarker &getNewModelMarker(const std::string &model_path = "package://ros_tools/models/walking.dae"); // const std::string &marker_type);
+        ROSMultiplePointMarker &getNewMultiplePointMarker(const std::string &marker_type);              // const std::string &marker_type);
+        ROSTextMarker &getNewTextMarker();                                                              // const std::string &marker_type);
+        ROSModelMarker &getNewModelMarker(const std::string &model_path = "package://mpc_planner_util/models/walking.dae");                               // const std::string &marker_type);
         // ROSEllipse& getNewEllipse();
 
         void publish(bool keep_markers = false);

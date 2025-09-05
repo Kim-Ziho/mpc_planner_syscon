@@ -12,7 +12,6 @@
   <depend>mpc_planner_util</depend>
   <depend>mpc_planner_types</depend>
   <depend>mpc_planner_solver</depend>
-  <depend>ros_tools</depend>
 
   <!-- START SOLVER DEPENDENT -->
 	<depend>decomp_util</depend>

@@ -5,7 +5,7 @@
 
 // Still requires ROS support for now, but can be modified to use other visualisation tools
 
-#include <ros_tools/ros_visuals.h>
+#include <mpc_planner_util/ros_visuals.h>
 #include <unordered_map>
 
 class Visuals

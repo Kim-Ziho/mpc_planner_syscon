@@ -21,7 +21,6 @@ set(DEPENDENCIES
   mpc_planner_types
   mpc_planner_util
   mpc_planner_solver
-  ros_tools
 )
 
 # Module dependencies

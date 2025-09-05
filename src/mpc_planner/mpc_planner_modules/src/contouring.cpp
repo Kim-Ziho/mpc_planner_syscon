@@ -5,8 +5,8 @@
 #include <mpc_planner_util/parameters.h>
 #include <mpc_planner_util/data_visualization.h>
 
-#include <ros_tools/visuals.h>
-#include <ros_tools/math.h>
+#include <mpc_planner_util/visuals.h>
+#include <mpc_planner_util/math.h>
 
 #include <algorithm>
 

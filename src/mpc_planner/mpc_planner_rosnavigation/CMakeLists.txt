@@ -14,7 +14,6 @@ set(DEPENDENCIES
   mpc_planner_util
   mpc_planner_types
   nav_core
-  ros_tools
   nav_msgs
 )
 

@@ -7,8 +7,8 @@
 #include <mpc_planner_util/parameters.h>
 #include <mpc_planner_util/data_visualization.h>
 
-#include <ros_tools/visuals.h>
-#include <ros_tools/spline.h>
+#include <mpc_planner_util/visuals.h>
+#include <mpc_planner_util/spline.h>
 
 #include <algorithm>
 
