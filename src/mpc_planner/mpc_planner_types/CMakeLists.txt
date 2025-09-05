@@ -7,7 +7,7 @@ endif()
 
 find_package(catkin REQUIRED COMPONENTS)
 
-find_package(Eigen3 3.3 REQUIRED)
+find_package(Eigen3 REQUIRED)
 
 catkin_package(
   INCLUDE_DIRS include ${EIGEN3_INCLUDE_DIRS}
@@ -26,8 +26,6 @@ add_library(${PROJECT_NAME} SHARED
 )
 add_dependencies(${PROJECT_NAME} ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 target_link_libraries(${PROJECT_NAME} ${catkin_LIBRARIES})
-
-target_compile_definitions(${PROJECT_NAME} PRIVATE -DMPC_PLANNER_ROS)
 
 # ## Test Case ####
 install(TARGETS ${PROJECT_NAME}

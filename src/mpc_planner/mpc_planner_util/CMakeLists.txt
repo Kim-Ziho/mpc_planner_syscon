@@ -11,6 +11,11 @@ set(DEPENDENCIES
   mpc_planner_types
   ros_tools
   roscpp
+  roslib
+  tf
+  std_msgs
+  geometry_msgs
+  visualization_msgs
 )
 
 find_package(catkin REQUIRED COMPONENTS
@@ -18,16 +23,19 @@ find_package(catkin REQUIRED COMPONENTS
 )
 
 find_package(yaml-cpp REQUIRED)
+find_package(Eigen3 REQUIRED)
 
 catkin_package(
   CATKIN_DEPENDS ${DEPENDENCIES}
-  INCLUDE_DIRS include include/${PROJECT_NAME}
+  INCLUDE_DIRS include ${EIGEN3_INCLUDE_DIRS}
   LIBRARIES ${PROJECT_NAME} yaml-cpp
+  DEPENDS EIGEN3
 )
 
 include_directories(
   include
   ${catkin_INCLUDE_DIRS}
+  ${EIGEN3_INCLUDE_DIRS}
 )
 
 add_library(${PROJECT_NAME} SHARED
@@ -35,8 +43,6 @@ add_library(${PROJECT_NAME} SHARED
 )
 add_dependencies(${PROJECT_NAME} ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 target_link_libraries(${PROJECT_NAME} ${catkin_LIBRARIES} yaml-cpp)
-
-add_definitions(-DMPC_PLANNER_ROS)
 
 install(TARGETS ${PROJECT_NAME}
   ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}

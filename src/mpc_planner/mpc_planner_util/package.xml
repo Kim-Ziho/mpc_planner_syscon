@@ -12,6 +12,12 @@
   <depend>roscpp</depend>
   <depend>mpc_planner_types</depend>
   <depend>ros_tools</depend>
+  <depend>roslib</depend>
+  <depend>eigen</depend>
+  <depend>geometry_msgs</depend>
+  <depend>std_msgs</depend>
+  <depend>visualization_msgs</depend>
+  <depend>tf</depend>
 
   <export>
     <build_type>catkin</build_type>

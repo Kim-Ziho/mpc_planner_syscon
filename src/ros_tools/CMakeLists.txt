@@ -22,7 +22,6 @@ find_package(catkin REQUIRED COMPONENTS
 )
 
 find_package(Eigen3 REQUIRED)
-add_definitions(${EIGEN_DEFINITIONS})
 
 catkin_package(
   CATKIN_DEPENDS ${DEPENDENCIES}
@@ -49,8 +48,6 @@ add_library(${PROJECT_NAME} SHARED
 
 add_dependencies(${PROJECT_NAME} ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 target_link_libraries(${PROJECT_NAME} ${catkin_LIBRARIES})
-
-add_definitions(-DMPC_PLANNER_ROS)
 
 install(TARGETS ${PROJECT_NAME} 
   ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
