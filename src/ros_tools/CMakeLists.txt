@@ -43,7 +43,6 @@ add_library(${PROJECT_NAME} SHARED
   src/spline.cpp
   src/convertions.cpp
   src/math.cpp
-  src/random_generator.cpp
   src/third_party/tkspline.cpp
   src/third_party/clothoid.cpp
 )
