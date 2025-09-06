@@ -23,7 +23,6 @@ pyparsing==3.1.4
 pytest-cov==4.1.0 
 pytest==8.3.3 
 python-dateutil==2.9.0.post0 
-python==3.8.10
 pyyaml==6.0.2 
 requests==2.32.3 
 scipy==1.10.1 

@@ -7,7 +7,7 @@
         {
             "name": "ROS: Launch Guidance Planner Example",
             "request": "launch",
-            "target": "/workspace/src/mpc_planner/mpc_planner_jackalsimulator/launch/ros1_jackalsimulator.launch",
+            "target": "${workspaceFolder}/src/mpc_planner/mpc_planner_jackalsimulator/launch/ros1_jackalsimulator.launch",
             "launch": [
                 "rviz",
                 "gz",

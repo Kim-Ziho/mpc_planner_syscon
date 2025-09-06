@@ -40,7 +40,7 @@
         },
         {
             "label": "JackalSimulator: Run Simulator",
-            "command": "source /opt/ros/noetic/setup.sh && source /workspace/devel/setup.bash && source /workspace/fix_console.sh && roslaunch mpc_planner_jackalsimulator ros1_jackalsimulator.launch",
+            "command": "source /opt/ros/noetic/setup.sh && source ${workspaceFolder}/devel/setup.bash && source ${workspaceFolder}/fix_console.sh && roslaunch mpc_planner_jackalsimulator ros1_jackalsimulator.launch",
             "type": "shell",
             "group": {
                 "kind": "build",
@@ -188,7 +188,7 @@
         },
         {
             "label": "Acados: race_cars main [Debug]",
-            "command": "source fix_console.sh && cd src/mpc_planner && python3 -m poetry run python -m debugpy --listen 0.0.0.0:5678 --wait-for-client /workspace/acados/examples/acados_python/race_cars/main.py",
+            "command": "source fix_console.sh && cd src/mpc_planner && python3 -m poetry run python -m debugpy --listen 0.0.0.0:5678 --wait-for-client ${workspaceFolder}/acados/examples/acados_python/race_cars/main.py",
             "type": "shell",
             "group": {
                 "kind": "build",
@@ -202,7 +202,7 @@
         },
         {
             "label": "Acados: minimal_example_closed_loop [Debug]",
-            "command": "source fix_console.sh && cd src/mpc_planner && python3 -m poetry run python -m debugpy --listen 0.0.0.0:5678 --wait-for-client /workspace/acados/examples/acados_python/getting_started/minimal_example_closed_loop.py",
+            "command": "source fix_console.sh && cd src/mpc_planner && python3 -m poetry run python -m debugpy --listen 0.0.0.0:5678 --wait-for-client ${workspaceFolder}/acados/examples/acados_python/getting_started/minimal_example_closed_loop.py",
             "type": "shell",
             "group": {
                 "kind": "build",
